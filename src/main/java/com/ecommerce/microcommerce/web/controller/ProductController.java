@@ -49,6 +49,15 @@ public class ProductController {
         return produitsFiltres;
     }
 
+    @RequestMapping(value = "/ProduitsAlpha", method = RequestMethod.GET)
+
+    public List<Product> trierProduitsParOrdreAlphabetique() {
+
+        List<Product> produits = productDao.findAllByOrderByNom();
+
+        return produits;
+    }
+
     @GetMapping(value = "/AdminProduits")
 
     public Map<Product,Integer> calculerMargeProduit() {
